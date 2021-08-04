@@ -22,30 +22,35 @@ def ones_str(x):
     return digit_str
 
 
+def eleventy_str(x):
+    if x == 0:
+        digit_str = "ten"
+    if x == 1:
+        digit_str = "eleven"
+    if x == 2:
+        digit_str = "twelve"
+    if x == 3:
+        digit_str = "thirteen"
+    if x == 4:
+        digit_str = "fourteen"
+    if x == 5:
+        digit_str = "fifteen"
+    if x == 6:
+        digit_str = "sixteen"
+    if x == 7:
+        digit_str = "seventeen"
+    if x == 8:
+        digit_str = "eighteen"
+    if x == 9:
+        digit_str = "nineteen"
+    return digit_str
+
+
 def tens_str(x):
     if x == 0:
         digit_str = ""
     if x == 1:
-        if digit1 == 0:
-            digit_str = "ten"
-        if digit1 == 1:
-            digit_str = "eleven"
-        if digit1 == 2:
-            digit_str = "twelve"
-        if digit1 == 3:
-            digit_str = "thirteen"
-        if digit1 == 4:
-            digit_str = "fourteen"
-        if digit1 == 5:
-            digit_str = "fifteen"
-        if digit1 == 6:
-            digit_str = "sixteen"
-        if digit1 == 7:
-            digit_str = "seventeen"
-        if digit1 == 8:
-            digit_str = "eighteen"
-        if digit1 == 9:
-            digit_str = "nineteen"
+        digit_str = eleventy_str(digit1)
     if x == 2:
         digit_str = "twenty"
     if x == 3:
