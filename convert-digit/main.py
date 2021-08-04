@@ -119,16 +119,21 @@ given_number_length = len(given_number_str)
 
 digit1 = given_number % 10
 
+given_number = given_number // 10
+digit2 = given_number % 10
+
+given_number = given_number // 10
+digit3 = given_number % 10
+
+given_number = given_number // 10
+digit4 = given_number % 10
+
 
 if given_number_length == 1:
         if digit1 < 1:
                 print("zero")
         else:
                 print(ones_str(digit1))
-
-
-given_number = given_number // 10
-digit2 = given_number % 10
 
 
 if given_number_length == 2:
@@ -138,10 +143,6 @@ if given_number_length == 2:
                 print(tens_str(digit2))
         else:
                 print(tens_str(digit2) + " " + ones_str(digit1))
-
-
-given_number = given_number // 10
-digit3 = given_number % 10
 
 
 if given_number_length == 3:
@@ -156,11 +157,6 @@ if given_number_length == 3:
                         print(hundreds_str(digit3) + " and " + tens_str(digit2))
                 else:
                         print(hundreds_str(digit3) + " and " + tens_str(digit2) + " " + ones_str(digit1))
-
-
-given_number = given_number // 10
-digit4 = given_number % 10
-
 
 
 if given_number_length == 4:
