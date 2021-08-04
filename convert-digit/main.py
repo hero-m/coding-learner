@@ -115,7 +115,7 @@ def thousands_str(x):
 
 given_number_str = input("enter a number : ")
 given_number = int(given_number_str)
-given_number_length = len(given_number_str)
+original_number = given_number
 
 digit1 = given_number % 10
 
@@ -129,14 +129,13 @@ given_number = given_number // 10
 digit4 = given_number % 10
 
 
-if given_number_length == 1:
+if original_number < 10:
         if digit1 < 1:
                 print("zero")
         else:
                 print(ones_str(digit1))
 
-
-if given_number_length == 2:
+elif original_number < 100:
         if digit2 < 2:
                 print(tens_str(digit2))
         elif digit1 == 0:
@@ -144,8 +143,7 @@ if given_number_length == 2:
         else:
                 print(tens_str(digit2) + " " + ones_str(digit1))
 
-
-if given_number_length == 3:
+elif original_number < 1000:
         if digit1 == digit2 == 0:
                 print(hundreds_str(digit3))
         elif digit2 == 0:
@@ -158,8 +156,7 @@ if given_number_length == 3:
                 else:
                         print(hundreds_str(digit3) + " and " + tens_str(digit2) + " " + ones_str(digit1))
 
-
-if given_number_length == 4:
+elif original_number < 10000:
         if digit1 == digit2 == digit3 == 0:
                 print(thousands_str(digit4))
         elif digit2 == digit3 == 0:
