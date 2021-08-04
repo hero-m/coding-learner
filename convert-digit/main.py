@@ -1,6 +1,6 @@
 def ones_str(x):
     if x == 0:
-        digit_str = ""
+        digit_str = "zero"
     if x == 1:
         digit_str = "one"
     if x == 2:
@@ -47,80 +47,106 @@ def eleventy_str(x):
 
 
 def tens_str(x):
-    if x == 0:
-        digit_str = ""
-    if x == 1:
+    digit2 = x // 10
+    digit1 = x % 10
+
+    if digit2 == 0:
+        digit_str = ones_str(digit1)
+    elif digit2 == 1:
         digit_str = eleventy_str(digit1)
-    if x == 2:
-        digit_str = "twenty"
-    if x == 3:
-        digit_str = "thity"
-    if x == 4:
-        digit_str = "forty"
-    if x == 5:
-        digit_str = "fifty"
-    if x == 6:
-        digit_str = "sixty"
-    if x == 7:
-        digit_str = "seventy"
-    if x == 8:
-        digit_str = "eighty"
-    if x == 9:
-        digit_str = "ninety"
+    else:
+        if digit2 == 2:
+            digit_str = "twenty"
+        if digit2 == 3:
+            digit_str = "thity"
+        if digit2 == 4:
+            digit_str = "forty"
+        if digit2 == 5:
+            digit_str = "fifty"
+        if digit2 == 6:
+            digit_str = "sixty"
+        if digit2 == 7:
+            digit_str = "seventy"
+        if digit2 == 8:
+            digit_str = "eighty"
+        if digit2 == 9:
+            digit_str = "ninety"
+
+        if digit1 != 0:
+            digit_str = digit_str + " " + ones_str(digit1)
+
     return digit_str
 
 
 def hundreds_str(x):
-    if x == 0:
-        digit_str = ""
-    if x == 1:
-        digit_str = "one hundred"
-    if x == 2:
-        digit_str = "two hundred"
-    if x == 3:
-        digit_str = "three hundred"
-    if x == 4:
-        digit_str = "four hundred"
-    if x == 5:
-        digit_str = "five hundred"
-    if x == 6:
-        digit_str = "six hundred"
-    if x == 7:
-        digit_str = "seven hundred"
-    if x == 8:
-        digit_str = "eight hundred"
-    if x == 9:
-        digit_str = "nine hundred"
+    digit3 = x // 100
+    rest = x % 100
+
+    if digit3 == 0:
+        digit_str = tens_str(rest)
+    else:
+        if digit3 == 1:
+            digit_str = "one hundred"
+        if digit3 == 2:
+            digit_str = "two hundred"
+        if digit3 == 3:
+            digit_str = "three hundred"
+        if digit3 == 4:
+            digit_str = "four hundred"
+        if digit3 == 5:
+            digit_str = "five hundred"
+        if digit3 == 6:
+            digit_str = "six hundred"
+        if digit3 == 7:
+            digit_str = "seven hundred"
+        if digit3 == 8:
+            digit_str = "eight hundred"
+        if digit3 == 9:
+            digit_str = "nine hundred"
+
+        if rest != 0:
+            digit_str = digit_str + " and " + tens_str(rest)
+
     return digit_str
 
 
 def thousands_str(x):
-    if x == 0:
-        digit_str = ""
-    if x == 1:
-        digit_str = "one thousand"
-    if x == 2:
-        digit_str = "two thousand"
-    if x == 3:
-        digit_str = "three thousand"
-    if x == 4:
-        digit_str = "four thousand"
-    if x == 5:
-        digit_str = "five thousand"
-    if x == 6:
-        digit_str = "six thousand"
-    if x == 7:
-        digit_str = "seven thousand"
-    if x == 8:
-        digit_str = "eight thousand"
-    if x == 9:
-        digit_str = "nine thousand"
+    digit4 = x // 1000
+    rest = x % 1000
+
+    if digit4 == 0:
+        digit_str = hundreds_str(rest)
+    else:
+        if digit4 == 1:
+            digit_str = "one thousand"
+        if digit4 == 2:
+            digit_str = "two thousand"
+        if digit4 == 3:
+            digit_str = "three thousand"
+        if digit4 == 4:
+            digit_str = "four thousand"
+        if digit4 == 5:
+            digit_str = "five thousand"
+        if digit4 == 6:
+            digit_str = "six thousand"
+        if digit4 == 7:
+            digit_str = "seven thousand"
+        if digit4 == 8:
+            digit_str = "eight thousand"
+        if digit4 == 9:
+            digit_str = "nine thousand"
+
+        if rest != 0:
+            digit_str = digit_str + " and " + hundreds_str(rest)
+
     return digit_str
 
 
 given_number_str = input("enter a number : ")
 given_number = int(given_number_str)
-original_number = given_number
+
+print(thousands_str(given_number))
+quit()
 
 digit1 = given_number % 10
 
