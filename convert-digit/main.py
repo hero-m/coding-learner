@@ -8,16 +8,13 @@ def tens_str(x):
     digit1 = x % 10
 
     if digit2 == 0:
-        digit_str = ones_list[digit1]
-    elif digit2 == 1:
-        digit_str = eleventy_list[digit1]
-    else:
-        digit_str = tens_list[digit2]
+        return ones_list[digit1]
+    if digit2 == 1:
+        return eleventy_list[digit1]
+    if digit1 == 0
+        return tens_list[digit2]
 
-        if digit1 != 0:
-            digit_str = digit_str + " " + ones_list[digit1]
-
-    return digit_str
+    return tens_list[digit2] + " " + ones_list[digit1]
 
 
 def hundreds_str(x):
@@ -25,14 +22,12 @@ def hundreds_str(x):
     rest = x % 100
 
     if digit3 == 0:
-        digit_str = tens_str(rest)
-    else:
-        digit_str = ones_list[digit3] + " hundred"
+        return tens_str(rest)
 
-        if rest != 0:
-            digit_str = digit_str + " and " + tens_str(rest)
+    if rest == 0:
+        return ones_list[digit3] + " hundred"
 
-    return digit_str
+    return ones_list[digit3] + " hundred and " + tens_str(rest)
 
 
 def thousands_str(x):
@@ -40,14 +35,12 @@ def thousands_str(x):
     rest = x % 1000
 
     if digit4 == 0:
-        digit_str = hundreds_str(rest)
-    else:
-        digit_str = ones_list[digit4] + " thousand"
+        return hundreds_str(rest)
 
-        if rest != 0:
-            digit_str = digit_str + " and " + hundreds_str(rest)
+    if rest == 0:
+        return ones_list[digit4] + " thousand"
 
-    return digit_str
+    return ones_list[digit4] + " thousand and " + hundreds_str(rest)
 
 
 given_number_str = input("enter a number : ")
